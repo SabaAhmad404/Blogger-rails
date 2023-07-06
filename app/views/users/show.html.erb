@@ -1,1 +1,38 @@
-<h1>hello<h1>
+<div class="main-container">
+<div class="link-back">
+    <div class="back-btn">
+    <%= link_to "Home", "/.../..."%>
+     <div class="back">
+    <%= link_to "Bacl", :back, class: "back-link" %>
+    </div>
+    <div class="user-path">
+    <%= link_to "Users",  users_path , class: "path"%>
+    </div>
+    </div>
+   
+     <div class="show-user-container">
+     <div class="user-photo">
+        <img src="<%=@users.photo%>" alt="user-photo">
+     </div>
+     <div class="user-infor">
+     <p class="counter">NUmber of posts: <%= @users.posts_counter || 0%></p>
+     </div>
+      <h2>Bio</h2>
+      <span><%= @users.bio%></span>
+
+     <%# posts start from here %>
+
+     <div class="posts-container">
+       <%@posts.each do |post|%>
+       <%= link_to user_post_path(@users, post) do%>
+         
+       <%end%>
+       <%end%>
+
+     </div>
+     
+     </div>
+
+</div>
+
+</div>
